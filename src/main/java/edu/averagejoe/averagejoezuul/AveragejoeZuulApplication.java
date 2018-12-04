@@ -24,13 +24,11 @@ public class AveragejoeZuulApplication {
 
     @Bean
     public CorsFilter corsFilter() {
-        List<String> origins = new ArrayList<String>();
-        origins.add("*");
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(origins);
-        config.setAllowedHeaders(origins);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");
         config.addAllowedMethod("HEAD");
         config.addAllowedMethod("GET");
